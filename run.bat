@@ -24,7 +24,7 @@ echo Extracting perl
 tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
 echo Extracting qt
 7zr x qt-everywhere-src-6.5.2.tar.xz
-tar -xf qt-everywhere-src-6.5.2.tar
+tar -xf qt-everywhere-src-6.5.2.tar > NUL 2>1
 
 echo Clearing archives
 DEL cmake-3.27.4-windows-x86_64.zip
@@ -44,7 +44,7 @@ echo Starting build
 CD qt-everywhere-src-6.5.2
 MKDIR out 
 CD out
-rem configure -qt-zlib -qt-libjpeg -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime -opengl dynamic -prefix %CD%\qt_release_mingw64 -release -opensource -nomake examples -nomake tests -skip qtwebengine
-rem mingw32-make install
+configure -qt-zlib -qt-libjpeg -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime -opengl dynamic -prefix %CD%\qt_release_mingw64 -release -opensource -nomake examples -nomake tests -skip qtwebengine
+mingw32-make install
 
 rem tar -czf ..\..\qt_release_mingw64.tar.gz %CD%\qt_release_mingw64
