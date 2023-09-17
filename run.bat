@@ -11,8 +11,8 @@ MKDIR strawberry
 MKDIR ninja
 
 tar -xf cmake-3.27.4-windows-x86_64.zip
-7zr x libclang-release_140-based-windows-mingw_64.7z
-7zr x MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z
+7zr x libclang-release_140-based-windows-mingw_64.7z -y > NUL
+7zr x MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z -y > NUL
 tar -xf ninja-win.zip -C ninja
 tar -xzf openssl-mingw-bin.tar.gz
 tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
