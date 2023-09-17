@@ -6,7 +6,7 @@ curl -L -o ninja-win.zip https://github.com/FetheredSerpent/qt-mingw64/releases/
 curl -L -o openssl-mingw-bin.tar.gz https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/openssl-mingw-bin.tar.gz
 curl -L -o qt-everywhere-src-6.5.2.tar.xz https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/qt-everywhere-src-6.5.2.tar.xz
 curl -L -o strawberry-perl-5.32.1.1-64bit.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/strawberry-perl-5.32.1.1-64bit.zip
-
+curl -L -o 7z2301-extra.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/7z2301-extra.7z
 MKDIR strawberry
 MKDIR ninja
 
@@ -23,10 +23,16 @@ tar -xzf openssl-mingw-bin.tar.gz
 echo Extracting perl
 tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
 echo Extracting qt
-7zr x qt-everywhere-src-6.5.2.tar.xz
-tar -xf qt-everywhere-src-6.5.2.tar > NUL 2>1
+MKDIR 7z
+cd 7z
+..\7zr x ..\7z2301-extra.7z
+cd ..
+7zr x qt5-everywhere-src-6.5.2.tar.xz -so | 7z\7za x -aoa -si -ttar
+rem tar -xf qt-everywhere-src-6.5.2.tar > NUL 2>1
 
 echo Clearing archives
+RMDIR /S /Q 7z
+DEL 7z2301-extra.7z
 DEL cmake-3.27.4-windows-x86_64.zip
 DEL libclang-release_140-based-windows-mingw_64.7z
 DEL MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z
@@ -45,6 +51,7 @@ CD qt-everywhere-src-6.5.2
 MKDIR out 
 CD out
 configure -qt-zlib -qt-libjpeg -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime -opengl dynamic -prefix %CD%\qt_release_mingw64 -release -opensource -nomake examples -nomake tests -skip qtwebengine
-mingw32-make install
+cmake --build . --parallel
+cmake --install .
 
-rem tar -czf ..\..\qt_release_mingw64.tar.gz %CD%\qt_release_mingw64
+tar -czf ..\..\qt_release_mingw64.tar.gz %CD%\qt_release_mingw64
