@@ -27,7 +27,7 @@ MKDIR 7z
 cd 7z
 ..\7zr x ..\7z2301-extra.7z
 cd ..
-7zr x qt5-everywhere-src-6.5.2.tar.xz -so | 7z\7za x -aoa -si -ttar
+7zr x qt-everywhere-src-6.5.2.tar.xz -so | 7z\7za x -aoa -si -ttar
 rem tar -xf qt-everywhere-src-6.5.2.tar > NUL 2>1
 
 echo Clearing archives
