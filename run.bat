@@ -33,7 +33,7 @@ SET PATH=%CD%\ninja;%CD%\mingw64\bin;%CD%\cmake-3.27.4-windows-x86_64\bin;%CD%\s
 CD qt-everywhere-src-6.5.2
 MKDIR out 
 CD out
-configure -qt-zlib -qt-libjpeg -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime -opengl dynamic -prefix %CD%\qt_release_mingw64 -release -opensource -nomake examples -nomake tests -skip qtwebengine
-mingw32-make install
+rem configure -qt-zlib -qt-libjpeg -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime -opengl dynamic -prefix %CD%\qt_release_mingw64 -release -opensource -nomake examples -nomake tests -skip qtwebengine
+rem mingw32-make install
 
-tar -czf ..\..\qt_release_mingw64.tar.gz %CD%\qt_release_mingw64
+rem tar -czf ..\..\qt_release_mingw64.tar.gz %CD%\qt_release_mingw64
