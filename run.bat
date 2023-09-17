@@ -10,22 +10,23 @@ curl -L -o strawberry-perl-5.32.1.1-64bit.zip https://github.com/FetheredSerpent
 MKDIR strawberry
 MKDIR ninja
 
-echo "Extracting cmake"
+echo Extracting cmake
 tar -xf cmake-3.27.4-windows-x86_64.zip
-echo "Extracting libclang"
-7zr x libclang-release_140-based-windows-mingw_64.7z -y > NUL
-echo "Extracting Mingw"
-7zr x MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z -y > NUL
-echo "Extracting ninja"
+echo Extracting libclang
+7zr x libclang-release_140-based-windows-mingw_64.7z -y
+echo Extracting Mingw
+7zr x MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z -y
+echo Extracting ninja
 tar -xf ninja-win.zip -C ninja
-echo "Extracting openssl"
+echo Extracting openssl
 tar -xzf openssl-mingw-bin.tar.gz
-echo "Extracting perl"
+echo Extracting perl
 tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
-echo "Extracting qt"
-tar -xJf qt-everywhere-src-6.5.2.tar.xz
+echo Extracting qt
+7zr x qt-everywhere-src-6.5.2.tar.xz
+tar -xf qt-everywhere-src-6.5.2.tar
 
-echo "Clearing archives"
+echo Clearing archives
 DEL cmake-3.27.4-windows-x86_64.zip
 DEL libclang-release_140-based-windows-mingw_64.7z
 DEL MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z
@@ -33,12 +34,13 @@ DEL ninja-win.zip
 DEL openssl-mingw-bin.tar.gz
 DEL strawberry-perl-5.32.1.1-64bit.zip
 DEL qt-everywhere-src-6.5.2.tar.xz
+DEL qt-everywhere-src-6.5.2.tar
 
 SET OPENSSL_ROOT_DIR=%CD%\openssl-mingw-bin
 SET LLVM_INSTALL_DIR=%CD%\libclang
 SET PATH=%CD%\ninja;%CD%\mingw64\bin;%CD%\cmake-3.27.4-windows-x86_64\bin;%CD%\strawberry\perl\bin;%CD%\qt-everywhere-src-6.5.2;%PATH%
 
-echo "Starting build"
+echo Starting build
 CD qt-everywhere-src-6.5.2
 MKDIR out 
 CD out
