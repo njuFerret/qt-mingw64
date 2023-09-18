@@ -51,7 +51,8 @@ CD qt-everywhere-src-6.5.2
 MKDIR out 
 CD out
 call ..\configure.bat -qt-zlib -qt-libjpeg -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime -opengl dynamic -prefix %CD%\qt_release_mingw64 -release -opensource -nomake examples -nomake tests -skip qtwebengine
-mingw32-make
+rem mingw32-make
+cmake --build . --target help
 rem cmake --build . --parallel
 rem cmake --install .
 
