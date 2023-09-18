@@ -64,6 +64,11 @@ CD %FULL_SOURCE_DIRECTORY%
 RMDIR /S /Q qt5compat
 
 echo Preparing: qttools
+CD %BUILD_START_DIR%
+curl -L -o libclang-release_140-based-windows-mingw_64.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/libclang-release_140-based-windows-mingw_64.7z
+echo Extracting libclang
+7zr x libclang-release_140-based-windows-mingw_64.7z -y
+DEL libclang-release_140-based-windows-mingw_64.7z
 CD %FULL_SOURCE_DIRECTORY%\qttools
 MKDIR out && CD out
 call qt-configure-module.bat ..
@@ -71,6 +76,7 @@ cmake --build . --parallel
 cmake --install .
 CD %FULL_SOURCE_DIRECTORY%
 RMDIR /S /Q qttools
+RMDIR /S /Q %BUILD_START_DIR%\libclang
 
 echo Preparing: qtremoteobjects
 CD %FULL_SOURCE_DIRECTORY%\qtremoteobjects
