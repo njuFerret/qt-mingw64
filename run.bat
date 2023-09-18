@@ -3,23 +3,23 @@ set RELEASE_BUILD_DIR=%BUILD_START_DIR%\qt_release_mingw64
 
 curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/7zr.exe
 curl -L -o cmake-3.27.4-windows-x86_64.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/cmake-3.27.4-windows-x86_64.zip
-curl -L -o libclang-release_140-based-windows-mingw_64.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/libclang-release_140-based-windows-mingw_64.7z
+REM curl -L -o libclang-release_140-based-windows-mingw_64.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/libclang-release_140-based-windows-mingw_64.7z
 curl -L -o MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z
 curl -L -o ninja-win.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/ninja-win.zip
 curl -L -o openssl-mingw-bin.tar.gz https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/openssl-mingw-bin.tar.gz
 curl -L -o qt-everywhere-src-6.5.2.tar.xz https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/qt-everywhere-src-6.5.2.tar.xz
 curl -L -o strawberry-perl-5.32.1.1-64bit.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/strawberry-perl-5.32.1.1-64bit.zip
 curl -L -o 7z2301-extra.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/7z2301-extra.7z
-curl -L -o ffmpeg-6.0-full_build-shared.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/ffmpeg-6.0-full_build-shared.7z
+REM curl -L -o ffmpeg-6.0-full_build-shared.7z https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/ffmpeg-6.0-full_build-shared.7z
 MKDIR strawberry
 MKDIR ninja
 
-echo Extracting ffmpeg
-7zr x ffmpeg-6.0-full_build-shared.7z
+REM echo Extracting ffmpeg
+REM 7zr x ffmpeg-6.0-full_build-shared.7z
 echo Extracting cmake
 tar -xf cmake-3.27.4-windows-x86_64.zip
-echo Extracting libclang
-7zr x libclang-release_140-based-windows-mingw_64.7z -y
+REM echo Extracting libclang
+REM 7zr x libclang-release_140-based-windows-mingw_64.7z -y
 echo Extracting Mingw
 7zr x MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z -y
 echo Extracting ninja
@@ -38,10 +38,11 @@ rem tar -xf qt-everywhere-src-6.5.2.tar > NUL 2>1
 
 echo Clearing archives
 RMDIR /S /Q 7z
-DEL ffmpeg-6.0-full_build-shared.7z
+RMDIR /S /Q qt-everywhere-src-6.5.2\qtwebengine
+REM DEL ffmpeg-6.0-full_build-shared.7z
 DEL 7z2301-extra.7z
 DEL cmake-3.27.4-windows-x86_64.zip
-DEL libclang-release_140-based-windows-mingw_64.7z
+REM DEL libclang-release_140-based-windows-mingw_64.7z
 DEL MinGW-w64-x86_64-11.2.0-release-posix-seh-rt_v9-rev1.7z
 DEL ninja-win.zip
 DEL openssl-mingw-bin.tar.gz
