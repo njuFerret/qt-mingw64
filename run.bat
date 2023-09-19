@@ -54,4 +54,4 @@ call %BUILD_START_DIR%\scripts\build.bat
 CD %BUILD_START_DIR%
 tar -czf qt_release_mingw64.tar.gz qt_release_mingw64
 
-call %BUILD_START_DIR%\scripts\build_docs.bat
+REM call %BUILD_START_DIR%\scripts\build_docs.bat
