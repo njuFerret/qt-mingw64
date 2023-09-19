@@ -24,10 +24,6 @@ jobs:
         with:
           name: qt_release_mingw64.tar.gz
           path: qt_release_mingw64.tar.gz
-        
-      - name: Build documentation
-        shell: cmd
-        run: call scripts/build_docs.bat
 
       - name: Upload Qt+Docs
         uses: actions/upload-artifact@v3.1.3
