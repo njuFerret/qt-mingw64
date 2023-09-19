@@ -11,6 +11,8 @@ echo Modules to build: qtbase, qtimageformats, ^
     qtspeech, qttranslations, qtvirtualkeyboard, ^
     qtwayland, qtwebview
 
+set HELPER_PATH=%BUILD_START_DIR%\scripts\build_default.bat
+
 echo Preparing: qtbase
 CD %FULL_SOURCE_DIRECTORY%\qtbase
 MKDIR out && CD out
@@ -23,7 +25,7 @@ cmake --install .
 CD %FULL_SOURCE_DIRECTORY%
 RMDIR /S /Q qtbase\out
 
-call build_default.bat qtimageformats qtlanguageserver ^
+call %HELPER_PATH% qtimageformats qtlanguageserver ^
     qtshadertools qtsvg qtdeclarative qtquicktimeline ^
     qtquick3d
 
@@ -42,7 +44,7 @@ CD %FULL_SOURCE_DIRECTORY%
 RMDIR /S /Q qtmultimedia\out
 REM RMDIR /S /Q %BUILD_START_DIR%\ffmpeg-6.0-full_build-shared
 
-call build_default.bat qt3d qt5compat qtactiveqt ^
+call %HELPER_PATH% qt3d qt5compat qtactiveqt ^
     qtcharts qtcoap qtconnectivity qtdatavis3d ^
     qtwebsockets qthttpserver
 
@@ -61,12 +63,12 @@ CD %FULL_SOURCE_DIRECTORY%
 RMDIR /S /Q qttools\out
 REM RMDIR /S /Q %BUILD_START_DIR%\libclang
 
-call build_default.bat qtserialport qtpositioning qtwebchannel
+call %HELPER_PATH% qtserialport qtpositioning qtwebchannel
 
 echo Not preparing: qtwebengine
 echo Reason: Chromium build not supported using Mingw
 
-call build_default.bat qtdoc qtgrpc qtlocation qtlottie ^
+call %HELPER_PATH% qtdoc qtgrpc qtlocation qtlottie ^
     qtmqtt qtnetworkauth qtopcua qtquick3dphysics ^
     qtquickeffectmaker qtremoteobjects qtscxml ^
     qtsensors qtserialbus qtspeech qttranslations ^
