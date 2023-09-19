@@ -4,6 +4,7 @@ call ..\configure.bat -qt-zlib -qt-libjpeg -qt-libpng ^
     -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime ^
     -opengl dynamic -prefix %RELEASE_BUILD_DIR% -release ^
     -opensource -nomake examples -nomake tests
+cmake --build . --target docs
 cmake --build . --target install_docs
 
 CD %BUILD_START_DIR%
