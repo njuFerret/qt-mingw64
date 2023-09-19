@@ -34,7 +34,7 @@
   - [x] Enable QDoc build (needs libclang from LLVM).
   - [x] Enable support for OpenSSL(v3) backend for TLS.
   - [x] Enable support for FFmpeg backend for qtmultimedia.
-  - [ ] Enable documentation building (in progress).
+  - [ ] Enable documentation building.
 
 ### Long-term Targets
   - [ ] Extend the default build to include most (if not
