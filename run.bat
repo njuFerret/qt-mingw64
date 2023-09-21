@@ -1,6 +1,7 @@
 set BUILD_START_DIR=%CD%
 set BUILD_MODE=%1
-set BUILD_OUTPUT_DIR=%BUILD_START_DIR%\qt_%BUILD_MODE%_mingw64
+set BUILD_DIR_NAME=qt_%BUILD_MODE%_mingw64
+set BUILD_OUTPUT_DIR=%BUILD_START_DIR%\%BUILD_DIR_NAME%
 set BUILD_FLAG=-%BUILD_MODE%
 
 curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/7zr.exe
@@ -54,6 +55,6 @@ set FULL_SOURCE_DIRECTORY=%CD%\qt-everywhere-src-6.5.2
 call %BUILD_START_DIR%\scripts\build.bat
 
 CD %BUILD_START_DIR%
-tar -czf qt_%BUILD_MODE%_mingw64.tar.gz qt_%BUILD_MODE%_mingw64
+tar -czf %BUILD_DIR_NAME%.tar.gz %BUILD_DIR_NAME%
 
 REM call %BUILD_START_DIR%\scripts\build_docs.bat
