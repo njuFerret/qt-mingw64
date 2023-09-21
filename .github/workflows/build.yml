@@ -25,11 +25,11 @@ jobs:
           name: qt_release_mingw64.tar.gz
           path: qt_release_mingw64.tar.gz
 
-      - name: Upload Qt+Docs
-        uses: actions/upload-artifact@v3.1.3
-        with:
-          name: qt_release_mingw64_with_docs.tar.gz
-          path: qt_release_mingw64_with_docs.tar.gz
+      # - name: Upload Qt+Docs
+      #   uses: actions/upload-artifact@v3.1.3
+      #   with:
+      #     name: qt_release_mingw64_with_docs.tar.gz
+      #     path: qt_release_mingw64_with_docs.tar.gz
 
           
   build_debug:
@@ -48,8 +48,8 @@ jobs:
           name: qt_debug_mingw64.tar.gz
           path: qt_debug_mingw64.tar.gz
 
-      - name: Upload Qt+Docs
-        uses: actions/upload-artifact@v3.1.3
-        with:
-          name: qt_release_mingw64_with_docs.tar.gz
-          path: qt_release_mingw64_with_docs.tar.gz
+      # - name: Upload Qt+Docs
+      #   uses: actions/upload-artifact@v3.1.3
+      #   with:
+      #     name: qt_release_mingw64_with_docs.tar.gz
+      #     path: qt_release_mingw64_with_docs.tar.gz
