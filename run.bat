@@ -1,5 +1,7 @@
 set BUILD_START_DIR=%CD%
-set RELEASE_BUILD_DIR=%BUILD_START_DIR%\qt_release_mingw64
+set BUILD_MODE=%1
+set BUILD_OUTPUT_DIR=%BUILD_START_DIR%\qt_%BUILD_MODE%_mingw64
+set BUILD_FLAG=-%BUILD_MODE%
 
 curl -L -o 7zr.exe https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/7zr.exe
 curl -L -o cmake-3.27.4-windows-x86_64.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/cmake-3.27.4-windows-x86_64.zip
@@ -42,16 +44,16 @@ DEL strawberry-perl-5.32.1.1-64bit.zip
 DEL qt-everywhere-src-6.5.2.tar.xz
 DEL qt-everywhere-src-6.5.2.tar
 
-SET CMAKE_PREFIX_PATH=%CD%\ffmpeg-6.0-full_build-shared;%RELEASE_BUILD_DIR%
+SET CMAKE_PREFIX_PATH=%CD%\ffmpeg-6.0-full_build-shared;%BUILD_OUTPUT_DIR%
 SET OPENSSL_ROOT_DIR=%CD%\openssl-mingw-bin
 SET LLVM_INSTALL_DIR=%CD%\libclang
-SET PATH=%CD%\ninja;%CD%\mingw64\bin;%CD%\cmake-3.27.4-windows-x86_64\bin;%CD%\strawberry\perl\bin;%RELEASE_BUILD_DIR%\bin;%CD%\qt-everywhere-src-6.5.2;%PATH%
+SET PATH=%CD%\ninja;%CD%\mingw64\bin;%CD%\cmake-3.27.4-windows-x86_64\bin;%CD%\strawberry\perl\bin;%BUILD_OUTPUT_DIR%\bin;%CD%\qt-everywhere-src-6.5.2;%PATH%
 
 echo Starting build
 set FULL_SOURCE_DIRECTORY=%CD%\qt-everywhere-src-6.5.2
 call %BUILD_START_DIR%\scripts\build.bat
 
 CD %BUILD_START_DIR%
-tar -czf qt_release_mingw64.tar.gz qt_release_mingw64
+tar -czf qt_%BUILD_MODE%_mingw64.tar.gz qt_%BUILD_MODE%_mingw64
 
 REM call %BUILD_START_DIR%\scripts\build_docs.bat
