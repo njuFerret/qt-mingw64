@@ -32,21 +32,21 @@ jobs:
       #     path: qt_release_mingw64_with_docs.tar.gz
 
           
-  build_debug:
-    runs-on: windows-latest
+  # build_debug:
+  #   runs-on: windows-latest
 
-    steps:
-      - uses: actions/checkout@v3
+  #   steps:
+  #     - uses: actions/checkout@v3
 
-      - name: Fetch dependencies and build Qt
-        shell: cmd
-        run: call run.bat debug
+  #     - name: Fetch dependencies and build Qt
+  #       shell: cmd
+  #       run: call run.bat debug
 
-      - name: Upload Qt
-        uses: actions/upload-artifact@v3.1.3
-        with:
-          name: qt_debug_mingw64.tar.gz
-          path: qt_debug_mingw64.tar.gz
+  #     - name: Upload Qt
+  #       uses: actions/upload-artifact@v3.1.3
+  #       with:
+  #         name: qt_debug_mingw64.tar.gz
+  #         path: qt_debug_mingw64.tar.gz
 
       # - name: Upload Qt+Docs
       #   uses: actions/upload-artifact@v3.1.3
