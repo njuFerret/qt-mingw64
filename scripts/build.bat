@@ -18,7 +18,7 @@ CD %FULL_SOURCE_DIRECTORY%\qtbase
 MKDIR out && CD out
 call ..\configure.bat -qt-zlib -qt-libjpeg -qt-libpng ^
     -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime ^
-    -opengl dynamic -prefix %BUILD_OUTPUT_DIR% %BUILD_MODE% ^
+    -opengl dynamic -prefix %BUILD_OUTPUT_DIR% %BUILD_FLAG% ^
     -opensource -nomake examples -nomake tests
 cmake --build . --parallel
 cmake --install .
