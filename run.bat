@@ -25,7 +25,7 @@ tar -xf ninja-win.zip -C ninja
 echo Extracting openssl
 tar -xzf openssl-mingw-bin.tar.gz
 echo Extracting perl
-tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
+REM tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
 echo Extracting qt
 MKDIR 7z
 cd 7z
