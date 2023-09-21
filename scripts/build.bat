@@ -18,7 +18,7 @@ CD %FULL_SOURCE_DIRECTORY%\qtbase
 MKDIR out && CD out
 call ..\configure.bat -qt-zlib -qt-libjpeg -qt-libpng ^
     -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime ^
-    -opengl dynamic -prefix %RELEASE_BUILD_DIR% -release ^
+    -opengl dynamic -prefix %BUILD_OUTPUT_DIR% %BUILD_MODE% ^
     -opensource -nomake examples -nomake tests
 cmake --build . --parallel
 cmake --install .
@@ -42,7 +42,7 @@ cmake --build . --parallel
 cmake --install .
 CD %FULL_SOURCE_DIRECTORY%
 RMDIR /S /Q qtmultimedia\out
-REM RMDIR /S /Q %BUILD_START_DIR%\ffmpeg-6.0-full_build-shared
+RMDIR /S /Q %BUILD_START_DIR%\ffmpeg-6.0-full_build-shared
 
 call %HELPER_PATH% qt3d qt5compat qtactiveqt ^
     qtcharts qtcoap qtconnectivity qtdatavis3d ^
@@ -61,7 +61,7 @@ cmake --build . --parallel
 cmake --install .
 CD %FULL_SOURCE_DIRECTORY%
 RMDIR /S /Q qttools\out
-REM RMDIR /S /Q %BUILD_START_DIR%\libclang
+RMDIR /S /Q %BUILD_START_DIR%\libclang
 
 call %HELPER_PATH% qtserialport qtpositioning qtwebchannel
 
