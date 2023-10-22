@@ -13,20 +13,20 @@ curl -L -o android-ndk-r25b-windows.zip https://github.com/FetheredSerpent/qt-mi
 tar -xf android-ndk-r25b-windows.zip
 DEL android-ndk-r25b-windows.zip
 
-curl -L -o platform-tools_r31.0.0-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/platform-tools_r31.0.0-windows.zip
-tar -xf platform-tools_r31.0.0-windows.zip
-DEL platform-tools_r31.0.0-windows.zip
+curl -L -o platform-tools_r33.0.0-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/platform-tools_r33.0.0-windows.zip
+tar -xf platform-tools_r33.0.0-windows.zip
+DEL platform-tools_r33.0.0-windows.zip
 MOVE platform-tools %ANDROID_SDK_ROOT%
 
-curl -L -o build-tools_r31-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/build-tools_r31-windows.zip
-tar -xf build-tools_r31-windows.zip
-DEL build-tools_r31-windows.zip
-MOVE android-12 %ANDROID_SDK_ROOT%\build-tools\31.0.0
+curl -L -o build-tools_r33-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/build-tools_r33-windows.zip
+tar -xf build-tools_r33-windows.zip
+DEL build-tools_r33-windows.zip
+MOVE android-13 %ANDROID_SDK_ROOT%\build-tools\33.0.0
 
-curl -L -o platform-31_r01.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/platform-31_r01.zip
-tar -xf platform-31_r01.zip
-DEL platform-31_r01.zip
-MOVE android-12 %ANDROID_SDK_ROOT%\platforms\android-31
+curl -L -o platform-33-ext3_r03.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/platform-33-ext3_r03.zip
+tar -xf platform-33-ext3_r03.zip
+DEL platform-33-ext3_r03.zip
+MOVE android-13 %ANDROID_SDK_ROOT%\platforms\android-33
 
 curl -L -o qt_release_mingw64.tar.gz https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/qt_release_mingw64.tar.gz
 tar -xzf qt_release_mingw64.tar.gz
