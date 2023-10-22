@@ -52,7 +52,7 @@ CD %FULL_SOURCE_DIRECTORY%\qtbase
 MKDIR out && CD out
 call ..\configure.bat -platform android-clang ^
     -android-ndk %ANDROID_NDK_ROOT% -android-sdk %ANDROID_SDK_ROOT% ^
-    -qt-host-path %QT_HOST% -android-abis arm64-v8 -qt-zlib -qt-libjpeg ^
+    -qt-host-path %QT_HOST% -android-abis arm64-v8a -qt-zlib -qt-libjpeg ^
     -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime ^
     -opengl dynamic -prefix %BUILD_OUTPUT_DIR% %BUILD_FLAG% ^
     -opensource -nomake examples -nomake tests
