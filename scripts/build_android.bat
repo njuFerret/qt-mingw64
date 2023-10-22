@@ -1,13 +1,16 @@
-SET ANDROID_NDK_ROOT=%BUILD_START_DIR%\android-ndk-r25b
-SET ANDROID_SDK_ROOT=%BUILD_START_DIR%\SDK
-SET QT_HOST=%BUILD_START_DIR%\qt_release_mingw64
+SET ANDROID_BASE=%TEMP%\build_android
+SET ANDROID_NDK_ROOT=%ANDROID_BASE%\android-ndk-r25b
+SET ANDROID_SDK_ROOT=%ANDROID_BASE%\SDK
+SET QT_HOST=%ANDROID_BASE%\qt_release_mingw64
 SET MINGW_ROOT=%BUILD_START_DIR%\mingw64\bin
 
-CD %BUILD_START_DIR%
+RMDIR /S /Q %ANDROID_BASE%
+MKDIR %ANDROID_BASE%
+CD %ANDROID_BASE%
 
-MKDIR %BUILD_START_DIR%\SDK
-MKDIR %BUILD_START_DIR%\SDK\platforms
-MKDIR %BUILD_START_DIR%\SDK\build-tools
+MKDIR %ANDROID_SDK_ROOT%
+MKDIR %ANDROID_SDK_ROOT%\platforms
+MKDIR %ANDROID_SDK_ROOT%\build-tools
 
 curl -L -o android-ndk-r25b-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/android-ndk-r25b-windows.zip
 tar -xf android-ndk-r25b-windows.zip
@@ -32,7 +35,7 @@ curl -L -o qt_release_mingw64.tar.gz https://github.com/FetheredSerpent/qt-mingw
 tar -xzf qt_release_mingw64.tar.gz
 DEL qt_release_mingw64.tar.gz
 
-RMDIR /S /Q openssl-mingw-bin
+RMDIR /S /Q %BUILD_START_DIR%\openssl-mingw-bin
 
 echo Modules to build: qtbase, qtimageformats, ^
     qtlanguageserver, qtshadertools, qtsvg, ^
