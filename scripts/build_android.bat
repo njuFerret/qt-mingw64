@@ -32,6 +32,8 @@ curl -L -o qt_release_mingw64.tar.gz https://github.com/FetheredSerpent/qt-mingw
 tar -xzf qt_release_mingw64.tar.gz
 DEL qt_release_mingw64.tar.gz
 
+RMDIR /S /Q openssl-mingw-bin
+
 echo Modules to build: qtbase, qtimageformats, ^
     qtlanguageserver, qtshadertools, qtsvg, ^
     qtdeclarative, qtquicktimeline, qtquick3d, ^
