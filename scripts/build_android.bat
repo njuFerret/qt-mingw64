@@ -1,5 +1,5 @@
 SET ANDROID_BASE=C:\build_android
-SET ANDROID_NDK_ROOT=%ANDROID_BASE%\android-ndk-r25b
+SET ANDROID_NDK_ROOT=%BUILD_START_DIR%\android-ndk-r25b
 SET ANDROID_SDK_ROOT=%ANDROID_BASE%\SDK
 SET QT_HOST=%ANDROID_BASE%\qt_release_mingw64
 SET MINGW_ROOT=%BUILD_START_DIR%\mingw64\bin
@@ -11,10 +11,6 @@ CD %ANDROID_BASE%
 MKDIR %ANDROID_SDK_ROOT%
 MKDIR %ANDROID_SDK_ROOT%\platforms
 MKDIR %ANDROID_SDK_ROOT%\build-tools
-
-curl -L -o android-ndk-r25b-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/android-ndk-r25b-windows.zip
-tar -xf android-ndk-r25b-windows.zip
-DEL android-ndk-r25b-windows.zip
 
 curl -L -o platform-tools_r33.0.0-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/platform-tools_r33.0.0-windows.zip
 tar -xf platform-tools_r33.0.0-windows.zip
@@ -34,6 +30,11 @@ MOVE android-13 %ANDROID_SDK_ROOT%\platforms\android-33
 curl -L -o qt_release_mingw64.tar.gz https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/qt_release_mingw64.tar.gz
 tar -xzf qt_release_mingw64.tar.gz
 DEL qt_release_mingw64.tar.gz
+
+CD %BUILD_START_DIR%
+curl -L -o android-ndk-r25b-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/android-ndk-r25b-windows.zip
+tar -xf android-ndk-r25b-windows.zip
+DEL android-ndk-r25b-windows.zip
 
 RMDIR /S /Q %BUILD_START_DIR%\openssl-mingw-bin
 
