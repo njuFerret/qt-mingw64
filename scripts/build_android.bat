@@ -1,7 +1,7 @@
 SET ANDROID_NDK_ROOT=%BUILD_START_DIR%\android-ndk-r25b
 SET ANDROID_SDK_ROOT=%BUILD_START_DIR%\SDK
-QT_HOST=%BUILD_START_DIR%\qt_release_mingw64
-MINGW_ROOT=%BUILD_START_DIR%\mingw64\bin
+SET QT_HOST=%BUILD_START_DIR%\qt_release_mingw64
+SET MINGW_ROOT=%BUILD_START_DIR%\mingw64\bin
 
 CD %BUILD_START_DIR%
 
@@ -10,25 +10,25 @@ MKDIR %BUILD_START_DIR%\SDK\platforms
 MKDIR %BUILD_START_DIR%\SDK\build-tools
 
 curl -L -o android-ndk-r25b-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/android-ndk-r25b-windows.zip
-7zr x android-ndk-r25b-windows.zip -y
+tar -xf android-ndk-r25b-windows.zip
 DEL android-ndk-r25b-windows.zip
 
 curl -L -o platform-tools_r31.0.0-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/platform-tools_r31.0.0-windows.zip
-7zr x platform-tools_r31.0.0-windows.zip -y
+tar -xf platform-tools_r31.0.0-windows.zip
 DEL platform-tools_r31.0.0-windows.zip
 MOVE platform-tools %ANDROID_SDK_ROOT%
 
 curl -L -o build-tools_r31-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/build-tools_r31-windows.zip
-7zr x build-tools_r31-windows.zip -y
+tar -xf build-tools_r31-windows.zip
 DEL build-tools_r31-windows.zip
 MOVE android-12 %ANDROID_SDK_ROOT%\build-tools\31.0.0
 
 curl -L -o platform-31_r01.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/platform-31_r01.zip
-7zr x platform-31_r01.zip -y
+tar -xf platform-31_r01.zip
 DEL platform-31_r01.zip
 MOVE android-12 %ANDROID_SDK_ROOT%\platforms\android-31
 
-curl -L qt_release_mingw64.tar.gz -o https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/qt_release_mingw64.tar.gz
+curl -L -o qt_release_mingw64.tar.gz https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/qt_release_mingw64.tar.gz
 tar -xzf qt_release_mingw64.tar.gz
 DEL qt_release_mingw64.tar.gz
 
