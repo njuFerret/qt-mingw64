@@ -55,8 +55,7 @@ set FULL_SOURCE_DIRECTORY=%CD%\qt-everywhere-src-6.5.2
 
 IF NOT DEFINED CI_ANDROID_ABI (
 call %BUILD_START_DIR%\scripts\build.bat
-)
-ELSE (
+) ELSE (
 call %BUILD_START_DIR%\scripts\build_android.bat
 )
 
