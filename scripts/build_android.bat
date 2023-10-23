@@ -59,7 +59,7 @@ call ..\configure.bat -platform android-clang ^
     -android-ndk %ANDROID_NDK_ROOT% -android-sdk %ANDROID_SDK_ROOT% ^
     -qt-host-path %QT_HOST% -android-abis %CI_ANDROID_ABI% -qt-zlib -qt-libjpeg ^
     -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz ^
-    -prefix %BUILD_OUTPUT_DIR% %BUILD_FLAG% ^
+    -prefix %BUILD_OUTPUT_DIR% -release ^
     -opensource -nomake examples -nomake tests
 cmake --build . --parallel
 cmake --install .
