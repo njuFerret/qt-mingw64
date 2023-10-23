@@ -19,7 +19,7 @@ MKDIR out && CD out
 call ..\configure.bat -qt-zlib -qt-libjpeg -qt-libpng ^
     -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime ^
     -opengl dynamic -prefix %BUILD_OUTPUT_DIR% -release ^
-    -opensource -nomake examples -nomake tests -sql-none
+    -opensource -nomake examples -nomake tests -no-sql-psql
 cmake --build . --parallel
 cmake --install .
 CD %FULL_SOURCE_DIRECTORY%
