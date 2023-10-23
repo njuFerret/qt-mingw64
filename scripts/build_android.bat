@@ -1,5 +1,5 @@
-SET ANDROID_BASE=C:\build_android
-SET ANDROID_NDK_ROOT=%BUILD_START_DIR%\android-ndk-r25b
+SET ANDROID_BASE=%BUILD_START_DIR%\android_tools
+SET ANDROID_NDK_ROOT=%ANDROID_BASE%\android-ndk-r25b
 SET ANDROID_SDK_ROOT=%ANDROID_BASE%\SDK
 SET QT_HOST=%ANDROID_BASE%\qt_release_mingw64
 SET MINGW_ROOT=%BUILD_START_DIR%\mingw64\bin
@@ -58,7 +58,7 @@ CD %FULL_SOURCE_DIRECTORY%\qtbase
 MKDIR out && CD out
 call ..\configure.bat -platform android-clang ^
     -android-ndk %ANDROID_NDK_ROOT% -android-sdk %ANDROID_SDK_ROOT% ^
-    -qt-host-path %QT_HOST% -android-abis arm64-v8a -qt-zlib -qt-libjpeg ^
+    -qt-host-path %QT_HOST% -android-abis %CI_ANDROID_ABI% -qt-zlib -qt-libjpeg ^
     -qt-libpng -qt-freetype -qt-pcre -qt-harfbuzz ^
     -prefix %BUILD_OUTPUT_DIR% %BUILD_FLAG% ^
     -opensource -nomake examples -nomake tests
