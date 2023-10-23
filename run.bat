@@ -25,7 +25,7 @@ tar -xf ninja-win.zip -C ninja
 echo Extracting openssl
 tar -xzf openssl-mingw-bin.tar.gz
 echo Extracting perl
-REM tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
+tar -xf strawberry-perl-5.32.1.1-64bit.zip -C strawberry
 echo Extracting qt
 MKDIR 7z
 cd 7z
@@ -43,7 +43,7 @@ DEL ninja-win.zip
 DEL openssl-mingw-bin.tar.gz
 DEL strawberry-perl-5.32.1.1-64bit.zip
 DEL qt-everywhere-src-6.5.2.tar.xz
-DEL qt-everywhere-src-6.5.2.tar
+REM DEL qt-everywhere-src-6.5.2.tar
 
 SET CMAKE_PREFIX_PATH=%CD%\ffmpeg-6.0-full_build-shared;%BUILD_OUTPUT_DIR%
 SET OPENSSL_ROOT_DIR=%CD%\openssl-mingw-bin
