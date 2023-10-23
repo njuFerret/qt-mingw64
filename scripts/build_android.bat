@@ -31,7 +31,6 @@ curl -L -o qt_release_mingw64.tar.gz https://github.com/FetheredSerpent/qt-mingw
 tar -xzf qt_release_mingw64.tar.gz
 DEL qt_release_mingw64.tar.gz
 
-CD %BUILD_START_DIR%
 curl -L -o android-ndk-r25b-windows.zip https://github.com/FetheredSerpent/qt-mingw64/releases/download/dependencies/android-ndk-r25b-windows.zip
 tar -xf android-ndk-r25b-windows.zip
 DEL android-ndk-r25b-windows.zip
