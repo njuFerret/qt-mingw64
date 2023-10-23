@@ -12,9 +12,6 @@ echo Modules to build: qtbase, qtimageformats, ^
     qtwayland, qtwebview
 
 set HELPER_PATH=%BUILD_START_DIR%\scripts\build_default.bat
-SET PGBIN=
-SET PGDATA=
-SET PGROOT=
 
 echo Preparing: qtbase
 CD %FULL_SOURCE_DIRECTORY%\qtbase
@@ -22,7 +19,7 @@ MKDIR out && CD out
 call ..\configure.bat -qt-zlib -qt-libjpeg -qt-libpng ^
     -qt-freetype -qt-pcre -qt-harfbuzz -openssl-runtime ^
     -opengl dynamic -prefix %BUILD_OUTPUT_DIR% -release ^
-    -opensource -nomake examples -nomake tests
+    -opensource -nomake examples -nomake tests -sql-sqlite
 cmake --build . --parallel
 cmake --install .
 CD %FULL_SOURCE_DIRECTORY%
