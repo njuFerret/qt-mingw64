@@ -48,7 +48,7 @@ REM DEL qt-everywhere-src-6.5.2.tar
 SET CMAKE_PREFIX_PATH=%CD%\ffmpeg-6.0-full_build-shared;%BUILD_OUTPUT_DIR%
 SET OPENSSL_ROOT_DIR=%CD%\openssl-mingw-bin
 SET LLVM_INSTALL_DIR=%CD%\libclang
-SET PATH=%CD%\ninja;%CD%\mingw64\bin;%CD%\cmake-3.27.4-windows-x86_64\bin;%CD%\strawberry\perl\bin;%BUILD_OUTPUT_DIR%\bin;%CD%\qt-everywhere-src-6.5.2;%PATH%
+SET PATH=%CD%\ninja;%CD%\mingw64\bin;%CD%\cmake-3.27.4-windows-x86_64\bin;%CD%\strawberry\perl\bin;%BUILD_OUTPUT_DIR%\bin;%CD%\qt-everywhere-src-6.5.2;%WINDIR%\system32;%WINDIR%
 
 echo Starting build
 set FULL_SOURCE_DIRECTORY=%CD%\qt-everywhere-src-6.5.2
