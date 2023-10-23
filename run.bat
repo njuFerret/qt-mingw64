@@ -52,7 +52,13 @@ SET PATH=%CD%\ninja;%CD%\mingw64\bin;%CD%\cmake-3.27.4-windows-x86_64\bin;%CD%\s
 
 echo Starting build
 set FULL_SOURCE_DIRECTORY=%CD%\qt-everywhere-src-6.5.2
+
+IF NOT DEFINED CI_ANDROID_ABI (
+call %BUILD_START_DIR%\scripts\build.bat
+)
+ELSE (
 call %BUILD_START_DIR%\scripts\build_android.bat
+)
 
 CD %BUILD_START_DIR%
 tar -czf %BUILD_DIR_NAME%.tar.gz %BUILD_DIR_NAME%
