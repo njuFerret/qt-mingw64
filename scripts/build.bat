@@ -12,6 +12,9 @@ echo Modules to build: qtbase, qtimageformats, ^
     qtwayland, qtwebview
 
 set HELPER_PATH=%BUILD_START_DIR%\scripts\build_default.bat
+SET PGBIN=
+SET PGDATA=
+SET PGROOT=
 
 echo Preparing: qtbase
 CD %FULL_SOURCE_DIRECTORY%\qtbase
