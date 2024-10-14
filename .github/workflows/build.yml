@@ -30,8 +30,8 @@ jobs:
         ref: 'v1.12'
 
     - name: Fetch dependencies and build Qt
-        shell: cmd
-        run: call test.bat clazy
+      shell: cmd
+      run: call test.bat clazy
 
 
 
