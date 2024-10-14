@@ -20,6 +20,6 @@ set PATH=%CD%7zip;%PATH%
 7z
 
 
-cd /D D:
+cd ..
 
 echo 当前路径：%CD%
