@@ -12,12 +12,25 @@ jobs:
   build_release:
     runs-on: windows-latest
 
-    steps:
-      - uses: actions/checkout@v3
+    steps:      
+      - uses: actions/checkout@v4      
+        with:
+          repository: 'llvm-project'
+          ref: 'llvmorg-19.1.1'
+
+          repository: 'clazy'
+          ref: 'v1.12'
 
       - name: Fetch dependencies and build Qt
         shell: cmd
         run: call test.bat release
+
+      # - name: Publish artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: llvm release
+      #     path: dist/Qt5.15.3-mingw64-x86-32.exe
+
 
       # - name: Upload Qt
       #   uses: actions/upload-artifact@v3.1.3
