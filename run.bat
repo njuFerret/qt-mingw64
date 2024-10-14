@@ -37,7 +37,6 @@ curl -L -o MingW.7z https://github.com/niXman/mingw-builds-binaries/releases/dow
 7zr x 7zip.exe -o7zip
 
 
-
 MKDIR strawberry
 MKDIR ninja
 
