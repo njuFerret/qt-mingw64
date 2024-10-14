@@ -15,9 +15,9 @@ jobs:
     steps:      
     - name: Checkout llvm-project
       uses: actions/checkout@v4
-        with:
-          repository: 'llvm-project'
-          ref: 'llvmorg-19.1.1' # specify the tag here
+      with:
+        repository: 'llvm-project'
+        ref: 'llvmorg-19.1.1' # specify the tag here
 
     - name: build Clang
       shell: cmd
@@ -25,9 +25,9 @@ jobs:
     
     - name: Checkout clazy
       uses: actions/checkout@v4
-        with:
-          repository: 'clazy'
-          ref: 'v1.12'
+      with:
+        repository: 'clazy'
+        ref: 'v1.12'
 
     - name: Fetch dependencies and build Qt
         shell: cmd
