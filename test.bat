@@ -21,5 +21,14 @@ set PATH=%CD%7zip;%PATH%
 
 
 cd ..
+echo 当前路径：%CD%
 
+cd ..
+echo 当前路径：%CD%
+
+cd ..
+echo 当前路径：%CD%
+
+mkdir Dev
+cd Dev
 echo 当前路径：%CD%
