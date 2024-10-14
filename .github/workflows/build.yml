@@ -13,17 +13,28 @@ jobs:
     runs-on: windows-latest
 
     steps:      
-      - uses: actions/checkout@v4      
+    - name: Checkout llvm-project
+      uses: actions/checkout@v4
         with:
           repository: 'llvm-project'
-          ref: 'llvmorg-19.1.1'
+          ref: 'llvmorg-19.1.1' # specify the tag here
 
+    - name: build Clang
+      shell: cmd
+      run: call test.bat clang
+    
+    - name: Checkout clazy
+      uses: actions/checkout@v4
+        with:
           repository: 'clazy'
           ref: 'v1.12'
 
-      - name: Fetch dependencies and build Qt
+    - name: Fetch dependencies and build Qt
         shell: cmd
-        run: call test.bat release
+        run: call test.bat clazy
+
+
+
 
       # - name: Publish artifacts
       #   uses: actions/upload-artifact@v4

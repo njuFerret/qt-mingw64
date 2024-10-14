@@ -5,6 +5,7 @@ set BUILD_START_DIR=%CD%
 @REM echo 环境变量：%PATH%
 @REM echo 当前路径：%CD%
 
+IF %BUILD_MODE%=="clang"(
 
 @REM 参数配置
 set INSTALL_PREFIX=D:\Dev
@@ -26,9 +27,9 @@ set CLANG_INSTALL_DIR=%INSTALL_PREFIX%\libclang
 : clazy安装目录与clang相同
 set CLAZY_INSTALL_DIR=%CLANG_INSTALL_DIR%
 
-cd \
-mkdir bb 
-set ROOT=%CD%
+@REM cd \
+@REM mkdir bb 
+set ROOT=%BUILD_START_DIR%
 set QT_SRC=%ROOT%\qt-everywhere-src-%QT_VER%
 
 @REM 下载7zr用于解压7z安装包
@@ -82,17 +83,26 @@ cmake -GNinja -DBUILD_SHARED_LIBS:BOOL=OFF -DLIBCLANG_BUILD_STATIC:BOOL=ON -DLLV
 cmake --build %LLVM_DIR%/build --parallel 
 @REM : 安装
 cmake --build %LLVM_DIR%/build --parallel --target install  
-
+)
+ELSE if %BUILD_MODE%=="clazy"(
 @REM 编译clazy
 cmake -DCMAKE_INSTALL_PREFIX=%CLAZY_INSTALL_DIR% -DCLANG_LIBRARY_IMPORT="%CLANG_INSTALL_DIR%/lib/libclang.a" -DCMAKE_BUILD_TYPE=Release -G "Ninja" -B"%CLAZY_SRC%"/build" -S"%CLAZY_SRC%"
 cmake --build "%CLAZY_SRC%/build" --parallel
 cmake --build "%CLAZY_SRC%/build" --parallel --target install
+)
+ELSE if %BUILD_MODE%=="qt"(
+
+
+)
+ELSE if %BUILD_MODE%=="qtcreator" (
+
+
+)
 
 @REM @REM 测试各个工具
 @REM cmake --version
 @REM ninja --version
 @REM g++ --version
-
 cd %CLANG_INSTALL_DIR%\bin
 clang-format --version
 
