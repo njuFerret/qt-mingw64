@@ -18,3 +18,8 @@ curl -L -o 7zip.exe https://www.7-zip.org/a/7z2408-x64.exe
 set PATH=%CD%7zip;%PATH%
 
 7z
+
+
+cd /D D:
+
+echo 当前路径：%CD%
